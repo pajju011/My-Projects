@@ -22,4 +22,10 @@ form{
 form select,button,input{
   width: 100%;
   border: none;
+  outline: none;
+  border-radius: 0.75rem;
+}
+form input{
+  border: 1px solid lightgray;
+  font-size: 1rem;
 }
