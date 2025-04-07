@@ -13,7 +13,7 @@ let winPattern = [
   [1, 4, 7],
   [3, 5, 8],
   [0, 4, 8],
-  [3, 4, 6],
+  [2, 4, 6],
 ];
 box.forEach((box) => {
   box.addEventListener("click", () => {
