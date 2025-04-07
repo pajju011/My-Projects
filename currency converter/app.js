@@ -3,5 +3,5 @@ const URL =
 
 const dropdown = document.querySelectorAll(".dropdown select");
 for (code in countryList) {
-  console.log(code);
+  console.log(code,countryList[code]);
 }
