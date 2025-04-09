@@ -1,10 +1,15 @@
 //api
-const URL =
-  "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@2024-03-06/v1/currencies/eur.json";
+// "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@2024-03-06/v1/currencies/eur.json";
+const baseURL = "https://api.frankfurter.app/latest";
+
+//acess element
+const dropdown = document.querySelectorAll(".dropdown select");
+const btn = document.querySelector("form button");
+const fromcurr = document.querySelector(".from select");
+const tocurr = document.querySelector(".to select");
+const msg=document.querySelector(".msg")
 
 // country options list
-const dropdown = document.querySelectorAll(".dropdown select");
-
 for (let select of dropdown) {
   for (let currcode in countryList) {
     let newOption = document.createElement("option");
@@ -31,3 +36,22 @@ const updateflag = (element) => {
   let newimg = element.parentElement.querySelector("img");
   newimg.src = newsrc;
 };
+
+btn.addEventListener("click", async (evt) => {
+  evt.preventDefault();
+  let amount = document.querySelector(".amount input");
+  let amtvalue = amount.value;
+  if (amtvalue === "" || amtvalue < 1) {
+    amtvalue = 1;
+    amount.value = "1";
+  }
+  //console.log(fromcurr.value,tocurr.value);
+  const url = `${baseURL}?amount=${amtvalue}&from=${fromcurr.value}&to=${tocurr.value}`;
+  let response = await fetch(url);
+  let data = await response.json();
+  let rate = data.rates[tocurr.value];
+  console.log(rate);
+
+  let finalamount=rate;
+  msg.innerText=`${amtvalue} ${fromcurr.value} =${finalamount} ${tocurr.value}`
+});
