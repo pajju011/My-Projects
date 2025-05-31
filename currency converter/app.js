@@ -10,8 +10,8 @@ const tocurr = document.querySelector(".to select");
 const msg=document.querySelector(".msg")
 
 // country options list
-for (let select of dropdown) {
-  for (let currcode in countryList) {
+for (let select of dropdown) {   
+  for (let currcode in countryList) {  
     let newOption = document.createElement("option");
     newOption.innerText = currcode;
     newOption.value = currcode;
