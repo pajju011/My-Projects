@@ -7,11 +7,11 @@ const dropdown = document.querySelectorAll(".dropdown select");
 const btn = document.querySelector("form button");
 const fromcurr = document.querySelector(".from select");
 const tocurr = document.querySelector(".to select");
-const msg=document.querySelector(".msg")
+const msg = document.querySelector(".msg");
 
 // country options list
-for (let select of dropdown) {   
-  for (let currcode in countryList) {  
+for (let select of dropdown) {
+  for (let currcode in countryList) {
     let newOption = document.createElement("option");
     newOption.innerText = currcode;
     newOption.value = currcode;
@@ -29,7 +29,7 @@ for (let select of dropdown) {
 }
 
 //flag change while option change
-const updateflag = (element) => {
+const updateflag = (element) => {  
   let currcode = element.value;
   let countrycode = countryList[currcode]; //IN,EU...
   let newsrc = `https://flagsapi.com/${countrycode}/flat/64.png`;
@@ -52,6 +52,6 @@ btn.addEventListener("click", async (evt) => {
   let rate = data.rates[tocurr.value];
   console.log(rate);
 
-  let finalamount=rate;
-  msg.innerText=`${amtvalue} ${fromcurr.value} =${finalamount} ${tocurr.value}`
+  let finalamount = rate;
+  msg.innerText = `${amtvalue} ${fromcurr.value} =${finalamount} ${tocurr.value}`;
 });
