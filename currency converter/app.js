@@ -15,7 +15,7 @@ for (let select of dropdown) {
     let newOption = document.createElement("option");
     newOption.innerText = currcode;
     newOption.value = currcode;
-    if (select.name === "from" && currcode === "USD") {
+    if (select.name === "from" && currcode === "USD") {     
       newOption.selected = "selected";
     } else if (select.name === "to" && currcode === "INR") {
       //dont give extra space in name
