@@ -29,7 +29,7 @@ for (let select of dropdown) {
 }
 
 //flag change while option change
-const updateflag = (element) => {  
+const updateflag = (element) => {      
   let currcode = element.value;
   let countrycode = countryList[currcode]; //IN,EU...
   let newsrc = `https://flagsapi.com/${countrycode}/flat/64.png`;
